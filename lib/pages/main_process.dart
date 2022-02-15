@@ -70,16 +70,11 @@ class _MainProcessState extends State<MainProcess> {
         title: const Text('ODDS Assignment'),
       ),
       body: SafeArea(
-        child: Column(
+        child: ListView(
+          shrinkWrap: true,
           children: [
             _buildInputPanel(),
-            Row(
-              children: [
-                Expanded(
-                  child: _buildOutputProcess(),
-                ),
-              ],
-            )
+            _buildOutputProcess(),
           ],
         ),
       ),
@@ -88,7 +83,7 @@ class _MainProcessState extends State<MainProcess> {
 
   Widget _buildOutputProcess() {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 16.0),
+      margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
       decoration: const BoxDecoration(
         color: Colors.amber,
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -121,55 +116,53 @@ class _MainProcessState extends State<MainProcess> {
     );
   }
 
-  Flexible _buildInputPanel() {
-    return Flexible(
-      child: Container(
-        margin: const EdgeInsets.all(16.0),
-        decoration: const BoxDecoration(
-          color: Colors.indigo,
-          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Row(
-            children: [
-              Flexible(
-                child: TextField(
-                  onSubmitted: (value) {
-                    //เมื่อกด enter
-                    _checkInputAndProcess();
-                  },
-                  controller: _controller,
-                  keyboardType: TextInputType.number,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 24.0,
-                  ),
-                  cursorColor: Colors.white,
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                        color: Colors.white.withOpacity(0.5),
-                      )),
-                      hintText: 'Enter the positive integer here',
-                      hintStyle: TextStyle(
-                        color: Colors.white.withOpacity(0.5),
-                        fontSize: 20.0,
-                      )),
-                ),
-              ),
-              TextButton(
-                onPressed: () {
+  Widget _buildInputPanel() {
+    return Container(
+      margin: const EdgeInsets.all(16.0),
+      decoration: const BoxDecoration(
+        color: Colors.indigo,
+        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Row(
+          children: [
+            Flexible(
+              child: TextField(
+                onSubmitted: (value) {
+                  //เมื่อกด enter
                   _checkInputAndProcess();
                 },
-                child: const Text(
-                  'Process',
-                  style: TextStyle(fontSize: 22.0, color: Colors.yellow),
+                controller: _controller,
+                keyboardType: TextInputType.number,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 24.0,
                 ),
-              )
-            ],
-          ),
+                cursorColor: Colors.white,
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                      color: Colors.white.withOpacity(0.5),
+                    )),
+                    hintText: 'Enter the positive integer here',
+                    hintStyle: TextStyle(
+                      color: Colors.white.withOpacity(0.5),
+                      fontSize: 20.0,
+                    )),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                _checkInputAndProcess();
+              },
+              child: const Text(
+                'Process',
+                style: TextStyle(fontSize: 22.0, color: Colors.yellow),
+              ),
+            )
+          ],
         ),
       ),
     );
