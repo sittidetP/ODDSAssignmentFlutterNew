@@ -49,7 +49,10 @@ class _MainProcessState extends State<MainProcess> {
       }
 
       int? input = int.tryParse(_controller.text);
-      if (input != null && input >= 0 && !input.toString().contains('e') && input != -0.0) {
+      if (input != null &&
+          input >= 0 &&
+          !input.toString().contains('e') &&
+          input != -0.0) {
         List fwdResult = ForwardProcess.startProcess(input);
         _results.addAll(fwdResult);
         List bwdResult = BackwardProcess.startProcess(fwdResult.last);
@@ -67,10 +70,16 @@ class _MainProcessState extends State<MainProcess> {
         title: const Text('ODDS Assignment'),
       ),
       body: SafeArea(
-        child: ListView(
+        child: Column(
           children: [
             _buildInputPanel(),
-            _buildOutputProcess(),
+            Row(
+              children: [
+                Expanded(
+                  child: _buildOutputProcess(),
+                ),
+              ],
+            )
           ],
         ),
       ),
