@@ -78,37 +78,35 @@ class _MainProcessState extends State<MainProcess> {
   }
 
   Widget _buildOutputProcess() {
-    return Flexible(
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 16.0),
-        decoration: const BoxDecoration(
-          color: Colors.amber,
-          borderRadius: BorderRadius.all(Radius.circular(20.0)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              const Text(
-                "Process Statement",
-                style: TextStyle(
-                    fontSize: 50.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (int i = 0; i < _results.length; ++i)
-                    Text(
-                      "${String.fromCharCode(65 + i)} : ${_results[i]}",
-                      textAlign: TextAlign.left,
-                      style: const TextStyle(fontSize: 26.0),
-                    )
-                ],
-              )
-            ],
-          ),
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 16.0),
+      decoration: const BoxDecoration(
+        color: Colors.amber,
+        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            const Text(
+              "Process Statement",
+              style: TextStyle(
+                  fontSize: 50.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (int i = 0; i < _results.length; ++i)
+                  Text(
+                    "${String.fromCharCode(65 + i)} : ${_results[i]}",
+                    textAlign: TextAlign.left,
+                    style: const TextStyle(fontSize: 26.0),
+                  )
+              ],
+            )
+          ],
         ),
       ),
     );
