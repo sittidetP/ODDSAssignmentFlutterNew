@@ -73,15 +73,15 @@ class _MainProcessState extends State<MainProcess> {
         child: ListView(
           shrinkWrap: true,
           children: [
-            _buildInputPanel(),
-            _buildOutputProcess(),
+            _buildInputPanel(), //ที่ใส่เลข
+            _buildOutputProcess(), //ที่แสดงผลลัพธ์
           ],
         ),
       ),
     );
   }
 
-  Widget _buildOutputProcess() {
+  Widget _buildOutputProcess() { //ที่แสดงผลลัพธ์
     return Container(
       margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
       decoration: const BoxDecoration(
@@ -92,19 +92,19 @@ class _MainProcessState extends State<MainProcess> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const Text(
+            const Text( //หัวข้อ Process Statement สีขาว
               "Process Statement",
               style: TextStyle(
                   fontSize: 50.0,
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             ),
-            Column(
+            Column( //ผลลัพธ์ของแต่ละขั้น
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 for (int i = 0; i < _results.length; ++i)
                   Text(
-                    "${String.fromCharCode(65 + i)} : ${_results[i]}",
+                    "${String.fromCharCode(65 + i)} : ${_results[i]}", //${String.fromCharCode(65 + i)} เป็นสตริงที่แปลงจาก ascii เป็นสตริง
                     textAlign: TextAlign.left,
                     style: const TextStyle(fontSize: 26.0),
                   )
@@ -116,7 +116,7 @@ class _MainProcessState extends State<MainProcess> {
     );
   }
 
-  Widget _buildInputPanel() {
+  Widget _buildInputPanel() { //ที่ใส่เลข
     return Container(
       margin: const EdgeInsets.all(16.0),
       decoration: const BoxDecoration(
@@ -128,7 +128,7 @@ class _MainProcessState extends State<MainProcess> {
         child: Row(
           children: [
             Flexible(
-              child: TextField(
+              child: TextField( //ช่องใส่เลข
                 onSubmitted: (value) {
                   //เมื่อกด enter
                   _checkInputAndProcess();
@@ -153,8 +153,8 @@ class _MainProcessState extends State<MainProcess> {
                     )),
               ),
             ),
-            TextButton(
-              onPressed: () {
+            TextButton( //ปุ่ม Process
+              onPressed: () { //เมื่อกดปุ่ม Process
                 _checkInputAndProcess();
               },
               child: const Text(
