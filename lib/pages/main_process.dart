@@ -52,7 +52,7 @@ class _MainProcessState extends State<MainProcess> {
       if (input != null &&
           input >= 0 &&
           !input.toString().contains('e') &&
-          input != -0.0) {
+          !input.toString().contains("-")) {
         List fwdResult = ForwardProcess.startProcess(input);
         _results.addAll(fwdResult);
         List bwdResult = BackwardProcess.startProcess(fwdResult.last);
