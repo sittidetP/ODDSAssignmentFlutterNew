@@ -1,16 +1,5 @@
-# oddsasflutter
+# คู่มือการใช้งานโปรแกรม
 
-A new Flutter project.
+![Screenshot (525)](https://user-images.githubusercontent.com/87589981/154094837-50cf0677-5ef2-4cb7-9c45-902ce36aea02.png)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+กรอกเลขจำนวนเต็มลงใน กรอบสีน้ำเงิน ซึ่งสามารถ กดปุ่ม Enter บนคีย์บอร์ด หรือ กดปุ่ม Process บนหน้าจอ เพื่อทำการประมวลผลได้
